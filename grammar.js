@@ -166,7 +166,7 @@ module.exports = grammar({
     function_clause: ($) =>
       prec(PREC.FUNCTION_CLAUSE, seq(field("name", $.atom), $.lambda_clause)),
 
-    comment: ($) => /%.*/,
+    comment: ($) => token(prec(-1, /%.*/)),
 
     ////////////////////////////////////////////////////////////////////////////
     //
