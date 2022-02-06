@@ -659,7 +659,12 @@ module.exports = grammar({
 
     map: ($) =>
       seq(HASH, BRACE_LEFT, opt(sepBy(COMMA, $.map_entry)), BRACE_RIGHT),
-    map_entry: ($) => seq($.term, choice(FAT_ARROW, COLON_EQUAL), $.expression),
+    map_entry: ($) =>
+      seq(
+        choice($.term, $.variable),
+        choice(FAT_ARROW, COLON_EQUAL),
+        $.expression
+      ),
 
     record: ($) =>
       seq(
