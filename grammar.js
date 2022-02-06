@@ -330,7 +330,7 @@ module.exports = grammar({
     type_record: ($) =>
       seq(
         HASH,
-        $.atom,
+        choice($.atom, $.expr_macro_application),
         BRACE_LEFT,
         opt(sepBy(COMMA, $.type_record_field)),
         BRACE_RIGHT
@@ -422,7 +422,13 @@ module.exports = grammar({
     expr_record_access: ($) =>
       prec.left(
         PREC.EXPR_MAP_UPDATE,
-        seq($.expression, HASH, $.atom, DOT, $.atom)
+        seq(
+          $.expression,
+          HASH,
+          choice($.atom, $.expr_macro_application),
+          DOT,
+          $.atom
+        )
       ),
 
     expr_record_update: ($) =>
@@ -720,7 +726,7 @@ module.exports = grammar({
     record: ($) =>
       seq(
         HASH,
-        $.atom,
+        choice($.atom, $.expr_macro_application),
         BRACE_LEFT,
         opt(sepBy(COMMA, $.record_field)),
         BRACE_RIGHT

@@ -6279,6 +6279,10 @@
           "named": true
         },
         {
+          "type": "expr_macro_application",
+          "named": true
+        },
+        {
           "type": "record_field",
           "named": true
         }
@@ -7081,6 +7085,10 @@
       "types": [
         {
           "type": "atom",
+          "named": true
+        },
+        {
+          "type": "expr_macro_application",
           "named": true
         },
         {
