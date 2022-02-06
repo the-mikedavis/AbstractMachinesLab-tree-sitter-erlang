@@ -144,9 +144,27 @@ module.exports = grammar({
         $.type_declaration,
         $.function_spec,
         $.function_declaration,
+        $.record_declaration,
         $.module_attribute,
         $.module_name,
         $.module_export
+      ),
+
+    record_declaration: ($) =>
+      seq(
+        DASH,
+        "record",
+        parens(seq(field("name", $.atom), COMMA, $._record_declaration_fields)),
+        DOT
+      ),
+
+    _record_declaration_fields: ($) => tuple($.expr_record_definition),
+
+    expr_record_definition: ($) =>
+      seq(
+        $.atom,
+        opt(seq(EQUAL, field("default", $.expression))),
+        opt(seq(DOUBLE_COLON, field("type", $.type_expression)))
       ),
 
     module_attribute: ($) =>

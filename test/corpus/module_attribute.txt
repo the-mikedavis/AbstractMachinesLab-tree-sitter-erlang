@@ -52,3 +52,59 @@ dialyzer attribute
           (expr_op
             (atom)
             (integer)))))))
+
+================================================================================
+record creation
+================================================================================
+
+-record(beam_file, {module               :: module(),
+                    labeled_exports = [] :: [beam_lib:labeled_entry()],
+                    attributes      = [] :: [beam_lib:attrib_entry()],
+                    compile_info    = [] :: [beam_lib:compinfo_entry()],
+                    code            = [] :: [#function{}]}).
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (record_declaration
+    (atom)
+    (expr_record_definition
+      (atom)
+      (type_expression
+        (type_application
+          (atom))))
+    (expr_record_definition
+      (atom)
+      (expr_list)
+      (type_expression
+        (type_list
+          (type_expression
+            (type_application
+              (atom)
+              (atom))))))
+    (expr_record_definition
+      (atom)
+      (expr_list)
+      (type_expression
+        (type_list
+          (type_expression
+            (type_application
+              (atom)
+              (atom))))))
+    (expr_record_definition
+      (atom)
+      (expr_list)
+      (type_expression
+        (type_list
+          (type_expression
+            (type_application
+              (atom)
+              (atom))))))
+    (expr_record_definition
+      (atom)
+      (expr_list)
+      (type_expression
+        (type_list
+          (type_expression
+            (type_record
+              (atom))))))))
