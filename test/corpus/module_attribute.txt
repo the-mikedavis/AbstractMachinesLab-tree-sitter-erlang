@@ -108,3 +108,42 @@ record creation
           (type_expression
             (type_record
               (atom))))))))
+
+================================================================================
+Spec with multi-clause 'when'
+================================================================================
+
+-spec to_standalone_fun(Fun, Options) -> StandaloneFun when
+      Fun :: fun(),
+      Options :: options(),
+      StandaloneFun :: standalone_fun().
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_spec
+    (atom)
+    (type_expression
+      (type_variable
+        (variable)))
+    (type_expression
+      (type_variable
+        (variable)))
+    (type_expression
+      (type_variable
+        (variable)))
+    (spec_when_clause
+      (type_binding
+        (variable)
+        (type_expression
+          (type_fun)))
+      (type_binding
+        (variable)
+        (type_expression
+          (type_application
+            (atom))))
+      (type_binding
+        (variable)
+        (type_expression
+          (type_application
+            (atom)))))))

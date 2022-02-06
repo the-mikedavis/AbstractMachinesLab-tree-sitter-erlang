@@ -215,8 +215,13 @@ module.exports = grammar({
         args($.type_expression),
         ARROW,
         field("def", $.type_expression),
+        opt($.spec_when_clause),
         DOT
       ),
+
+    spec_when_clause: ($) => seq("when", sepBy(COMMA, $.type_binding)),
+
+    type_binding: ($) => seq($.variable, DOUBLE_COLON, $.type_expression),
 
     type_expression: ($) =>
       sepBy(
