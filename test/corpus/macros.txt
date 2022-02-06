@@ -88,3 +88,23 @@ macro definition
       (expr_macro_application
         (atom)
         (variable)))))
+
+================================================================================
+ifdef/endif
+================================================================================
+
+-ifdef(TEST).
+-export([test_case/0]).
+-endif.
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (module_attribute
+    (atom)
+    (variable))
+  (module_export
+    (atom)
+    (integer))
+  (module_attribute
+    (atom)))
