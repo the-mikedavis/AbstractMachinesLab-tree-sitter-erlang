@@ -36,3 +36,42 @@ macro application
       (integer))
     (expr_macro_application
       (variable))))
+
+================================================================================
+macro definition
+================================================================================
+
+-define(ASM_CACHE_KEY(Module, Checksum),
+        {?MODULE, asm_cache, Module, Checksum}).
+-define(Const, Replacement).
+-define(MACRO1(X, Y), {a, X, b, Y}).
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (macro_declaration
+    (variable)
+    (pattern
+      (variable))
+    (pattern
+      (variable))
+    (tuple
+      (expr_macro_application
+        (variable))
+      (atom)
+      (variable)
+      (variable)))
+  (macro_declaration
+    (variable)
+    (variable))
+  (macro_declaration
+    (variable)
+    (pattern
+      (variable))
+    (pattern
+      (variable))
+    (tuple
+      (atom)
+      (variable)
+      (atom)
+      (variable))))

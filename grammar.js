@@ -74,6 +74,7 @@ const PREC = {
   UNARY_OP: 10,
   BINARY_OP: 9,
   MODULE_DECLARATION: 8,
+  MACRO_DECLARATION: 8,
   FUNCTION_CLAUSE: 7,
   FUNCTION_NAME: 5,
   PARENTHESIZED_EXPRESSION: 6,
@@ -144,6 +145,7 @@ module.exports = grammar({
         $.type_declaration,
         $.function_spec,
         $.function_declaration,
+        $.macro_declaration,
         $.record_declaration,
         $.module_attribute,
         $.module_name,
@@ -187,6 +189,24 @@ module.exports = grammar({
 
     function_clause: ($) =>
       prec(PREC.FUNCTION_CLAUSE, seq(field("name", $.atom), $.lambda_clause)),
+
+    macro_declaration: ($) =>
+      prec(
+        PREC.MACRO_DECLARATION,
+        seq(
+          DASH,
+          "define",
+          parens(
+            seq(
+              field("name", $.variable),
+              opt(field("arguments", args($.pattern))),
+              COMMA,
+              field("value", $.expression)
+            )
+          ),
+          DOT
+        )
+      ),
 
     comment: ($) => token(prec(-1, /%.*/)),
 
