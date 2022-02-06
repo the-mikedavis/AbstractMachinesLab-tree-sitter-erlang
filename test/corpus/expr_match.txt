@@ -106,7 +106,7 @@ _ = 1
 bindings on right-hand-sides of patterns
 ================================================================================
 
-get_state(#state{} = State) -> State.
+get_state(#state{} = state) -> State.
 
 --------------------------------------------------------------------------------
 
@@ -117,7 +117,33 @@ get_state(#state{} = State) -> State.
       (lambda_clause
         (pattern
           (record
-            (atom)))
+            (atom))
+          (atom))
+        (variable)))))
+
+================================================================================
+nested bindings on right-hand-sides of patterns
+================================================================================
+
+get_state([{label, _} = _Label | Rest]) -> Rest.
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_declaration
+    (function_clause
+      (atom)
+      (lambda_clause
         (pattern
-          (variable))
+          (pat_list
+            (pat_list_cons
+              (pattern
+                (pat_tuple
+                  (pattern
+                    (atom))
+                  (pattern
+                    (variable)))
+                (variable))
+              (pattern
+                (variable)))))
         (variable)))))

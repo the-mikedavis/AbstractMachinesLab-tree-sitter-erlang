@@ -320,7 +320,10 @@ module.exports = grammar({
     ////////////////////////////////////////////////////////////////////////////
 
     pattern: ($) =>
-      prec(PREC.PATTERN, choice($.term, $.variable, $.pat_list, $.pat_tuple)),
+      prec(
+        PREC.PATTERN,
+        sepBy(EQUAL, choice($.term, $.variable, $.pat_list, $.pat_tuple))
+      ),
 
     pat_list: ($) =>
       prec(PREC.PATTERN, choice(list($.pattern), $.pat_list_cons)),
@@ -533,7 +536,7 @@ module.exports = grammar({
 
     lambda_clause: ($) =>
       seq(
-        field("arguments", args(sepBy(EQUAL, $.pattern))),
+        field("arguments", args($.pattern)),
         opt($.guard_clause),
         ARROW,
         field("body", sepBy(COMMA, $.expression))
