@@ -605,7 +605,7 @@ module.exports = grammar({
     bin_part: ($) =>
       choice(
         seq(
-          choice($.integer, $.float, $.string),
+          choice($.integer, $.float, $.string, $.char, $.variable),
           opt($.bin_sized),
           opt($.bin_type_list)
         ),

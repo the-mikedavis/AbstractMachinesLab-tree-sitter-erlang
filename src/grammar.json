@@ -3671,6 +3671,14 @@
                 {
                   "type": "SYMBOL",
                   "name": "string"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "char"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "variable"
                 }
               ]
             },

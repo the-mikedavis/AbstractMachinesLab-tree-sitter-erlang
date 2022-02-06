@@ -27,3 +27,15 @@ comprehensions
         (computed_function_name
           (atom))
         (variable)))))
+
+================================================================================
+function that matches with a bitstring
+================================================================================
+
+parse_date(
+    <<Year:4/bytes, $-, Month:2/bytes, $-, Day:2/bytes, _Rest/binary>>) ->
+    {Year, Month, Day}.
+
+----------
+
+(source_file)
