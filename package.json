@@ -5,7 +5,8 @@
   "scripts": {
     "gen": "tree-sitter generate",
     "parse": "tree-sitter parse",
-    "test": "yarn run gen && tree-sitter test"
+    "test": "yarn run gen && tree-sitter test",
+    "format": "prettier --write grammar.js"
   },
   "author": "Leandro Ostera <leandro@ostera.io>",
   "license": "Apache-2.0",
