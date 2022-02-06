@@ -149,7 +149,11 @@ module.exports = grammar({
         $.module_export
       ),
 
-    module_attribute: ($) => seq(DASH, $.atom, parens($.expression), DOT),
+    module_attribute: ($) =>
+      prec(
+        PREC.MODULE_DECLARATION,
+        seq(DASH, $.atom, parens($.expression), DOT)
+      ),
 
     module_name: ($) => seq(DASH, "module", parens($.atom), DOT),
 

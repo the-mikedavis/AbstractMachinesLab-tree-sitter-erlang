@@ -30,3 +30,25 @@ export attribute
     (integer)
     (atom)
     (integer)))
+
+================================================================================
+dialyzer attribute
+================================================================================
+
+-dialyzer([{noreturn, [hello/0, what/1]}]).
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (module_attribute
+    (atom)
+    (expr_list
+      (tuple
+        (atom)
+        (expr_list
+          (expr_op
+            (atom)
+            (integer))
+          (expr_op
+            (atom)
+            (integer)))))))
