@@ -15,5 +15,13 @@
     "prettier": "^2.2.1",
     "tree-sitter-cli": "^0.17.3"
   },
-  "main": "bindings/node"
+  "main": "bindings/node",
+  "tree-sitter": [
+    {
+      "file-types": [
+        "erl",
+        "hrl"
+      ]
+    }
+  ]
 }
