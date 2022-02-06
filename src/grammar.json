@@ -1933,6 +1933,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "expr_function_capture"
+        },
+        {
+          "type": "SYMBOL",
           "name": "expr_macro_application"
         },
         {
@@ -3438,6 +3442,31 @@
                 }
               }
             ]
+          }
+        }
+      ]
+    },
+    "expr_function_capture": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "fun"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_function_name"
+        },
+        {
+          "type": "STRING",
+          "value": "/"
+        },
+        {
+          "type": "FIELD",
+          "name": "arity",
+          "content": {
+            "type": "SYMBOL",
+            "name": "integer"
           }
         }
       ]

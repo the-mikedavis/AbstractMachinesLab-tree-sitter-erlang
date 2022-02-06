@@ -387,6 +387,7 @@ module.exports = grammar({
         $.expr_lambda,
         $.expr_list,
         $.expr_list_comprehension,
+        $.expr_function_capture,
         $.expr_macro_application,
         $.expr_map_update,
         $.expr_match,
@@ -561,6 +562,9 @@ module.exports = grammar({
         ARROW,
         field("body", sepBy(COMMA, $.expression))
       ),
+
+    expr_function_capture: ($) =>
+      seq("fun", $._function_name, SLASH, field("arity", $.integer)),
 
     expr_function_call: ($) =>
       seq(field("name", $._function_name), args($.expression)),
