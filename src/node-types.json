@@ -4625,7 +4625,7 @@
         ]
       },
       "def": {
-        "multiple": false,
+        "multiple": true,
         "required": true,
         "types": [
           {
@@ -4646,7 +4646,7 @@
       }
     },
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": false,
       "types": [
         {

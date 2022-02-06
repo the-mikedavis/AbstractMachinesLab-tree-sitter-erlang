@@ -232,10 +232,15 @@ module.exports = grammar({
         DASH,
         choice("spec", "callback"),
         field("name", $.atom),
-        args($.type_expression),
-        ARROW,
-        field("def", $.type_expression),
-        opt($.spec_when_clause),
+        sepBy(
+          SEMI,
+          seq(
+            args($.type_expression),
+            ARROW,
+            field("def", $.type_expression),
+            opt($.spec_when_clause)
+          )
+        ),
         DOT
       ),
 

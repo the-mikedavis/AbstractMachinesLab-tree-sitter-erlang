@@ -147,3 +147,82 @@ Spec with multi-clause 'when'
         (type_expression
           (type_application
             (atom)))))))
+
+================================================================================
+Spec with multi-clause 'when'
+================================================================================
+
+-spec get
+(StoreId, PathPattern) -> Result when
+      StoreId :: store_id(),
+      PathPattern :: khepri_path:pattern() | string(),
+      Result :: khepri_machine:result();
+(PathPattern, Options) -> Result when
+      PathPattern :: khepri_path:pattern() | string(),
+      Options :: khepri_machine:operation_options(),
+      Result :: khepri_machine:result().
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_spec
+    (atom)
+    (type_expression
+      (type_variable
+        (variable)))
+    (type_expression
+      (type_variable
+        (variable)))
+    (type_expression
+      (type_variable
+        (variable)))
+    (spec_when_clause
+      (type_binding
+        (variable)
+        (type_expression
+          (type_application
+            (atom))))
+      (type_binding
+        (variable)
+        (type_expression
+          (type_application
+            (atom)
+            (atom))
+          (type_application
+            (atom))))
+      (type_binding
+        (variable)
+        (type_expression
+          (type_application
+            (atom)
+            (atom)))))
+    (type_expression
+      (type_variable
+        (variable)))
+    (type_expression
+      (type_variable
+        (variable)))
+    (type_expression
+      (type_variable
+        (variable)))
+    (spec_when_clause
+      (type_binding
+        (variable)
+        (type_expression
+          (type_application
+            (atom)
+            (atom))
+          (type_application
+            (atom))))
+      (type_binding
+        (variable)
+        (type_expression
+          (type_application
+            (atom)
+            (atom))))
+      (type_binding
+        (variable)
+        (type_expression
+          (type_application
+            (atom)
+            (atom)))))))
