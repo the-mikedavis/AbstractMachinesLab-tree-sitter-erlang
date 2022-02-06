@@ -263,3 +263,32 @@ end
         (atom)))
     (expr_try_after
       (atom))))
+
+================================================================================
+try with multiple expression body
+================================================================================
+
+try
+    Callback(Instruction),
+    State
+catch
+    throw:Error -> Error
+end
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (expr_try
+    (expr_function_call
+      (computed_function_name
+        (variable))
+      (variable))
+    (variable)
+    (expr_try_catch
+      (catch_clause
+        (catch_pattern
+          (pattern
+            (atom))
+          (pattern
+            (variable)))
+        (variable)))))

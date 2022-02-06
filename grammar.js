@@ -416,7 +416,7 @@ module.exports = grammar({
     expr_try: ($) =>
       seq(
         "try",
-        $.expression,
+        sepBy(COMMA, $.expression),
         opt(seq("of", sepBy(SEMI, $.case_clause))),
         choice($.expr_try_catch, $.expr_try_after, $._expr_try_catch_after),
         "end"
