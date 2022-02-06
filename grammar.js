@@ -564,7 +564,7 @@ module.exports = grammar({
       ),
 
     expr_function_capture: ($) =>
-      seq("fun", $._function_name, SLASH, field("arity", $.integer)),
+      seq("fun", $._exact_function_name, SLASH, field("arity", $.integer)),
 
     expr_function_call: ($) =>
       seq(field("name", $._function_name), args($.expression)),
@@ -574,6 +574,18 @@ module.exports = grammar({
         PREC.FUNCTION_NAME,
         choice($.computed_function_name, $.qualified_function_name)
       ),
+
+    _exact_function_name: ($) =>
+      prec(
+        PREC.FUNCTION_NAME,
+        choice(
+          alias($._exact_qualified_function_name, $.qualified_function_name),
+          alias($.atom, $.computed_function_name)
+        )
+      ),
+
+    _exact_qualified_function_name: ($) =>
+      seq(field("module_name", $.atom), COLON, field("function_name", $.atom)),
 
     qualified_function_name: ($) =>
       seq(

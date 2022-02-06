@@ -596,7 +596,18 @@
   {
     "type": "computed_function_name",
     "named": true,
-    "fields": {},
+    "fields": {
+      "value": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "'",
+            "named": false
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": false,
       "required": false,
