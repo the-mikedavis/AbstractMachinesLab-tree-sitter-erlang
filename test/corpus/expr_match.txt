@@ -101,3 +101,23 @@ _ = 1
   (expr_match
     (variable)
     (integer)))
+
+================================================================================
+bindings on right-hand-sides of patterns
+================================================================================
+
+get_state(#state{} = State) -> State.
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_declaration
+    (function_clause
+      (atom)
+      (lambda_clause
+        (pattern
+          (record
+            (atom)))
+        (pattern
+          (variable))
+        (variable)))))

@@ -4840,6 +4840,10 @@
             "named": false
           },
           {
+            "type": "=",
+            "named": false
+          },
+          {
             "type": "pattern",
             "named": true
           }

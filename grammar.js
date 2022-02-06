@@ -533,7 +533,7 @@ module.exports = grammar({
 
     lambda_clause: ($) =>
       seq(
-        field("arguments", args($.pattern)),
+        field("arguments", args(sepBy(EQUAL, $.pattern))),
         opt($.guard_clause),
         ARROW,
         field("body", sepBy(COMMA, $.expression))
