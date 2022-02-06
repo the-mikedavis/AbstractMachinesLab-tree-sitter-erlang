@@ -644,7 +644,8 @@ module.exports = grammar({
       ),
     float: ($) => /-?([\d_]*#)?[\d_]+\.[\d_]+(e-?[\d_]+)?/,
 
-    string: ($) => seq('"', repeat(choice(/[^"\\]+/, $._escape)), '"'),
+    string: ($) =>
+      prec.right(repeat1(seq('"', repeat(choice(/[^"\\]+/, $._escape)), '"'))),
 
     char: ($) => seq("$", choice(/[^\\]/, $._escape)),
 
