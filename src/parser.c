@@ -4239,6 +4239,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       END_STATE();
     case 33:
       if (lookahead == '\n' ||
+          lookahead == '"' ||
           lookahead == 'b' ||
           ('d' <= lookahead && lookahead <= 'f') ||
           lookahead == 'n' ||
