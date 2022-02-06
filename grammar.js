@@ -198,7 +198,7 @@ module.exports = grammar({
           "define",
           parens(
             seq(
-              field("name", $.variable),
+              field("name", choice($.atom, $.variable)),
               opt(field("arguments", args($.pattern))),
               COMMA,
               field("value", $.expression)

@@ -5157,6 +5157,10 @@
         "required": true,
         "types": [
           {
+            "type": "atom",
+            "named": true
+          },
+          {
             "type": "variable",
             "named": true
           }

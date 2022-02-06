@@ -45,6 +45,8 @@ macro definition
         {?MODULE, asm_cache, Module, Checksum}).
 -define(Const, Replacement).
 -define(MACRO1(X, Y), {a, X, b, Y}).
+-define(assertStandaloneFun(Expression),
+        ?assertMatch(#standalone_fun{}, ?make_standalone_fun(Expression))).
 
 --------------------------------------------------------------------------------
 
@@ -74,4 +76,15 @@ macro definition
       (atom)
       (variable)
       (atom)
-      (variable))))
+      (variable)))
+  (macro_declaration
+    (atom)
+    (pattern
+      (variable))
+    (expr_macro_application
+      (atom)
+      (record
+        (atom))
+      (expr_macro_application
+        (atom)
+        (variable)))))

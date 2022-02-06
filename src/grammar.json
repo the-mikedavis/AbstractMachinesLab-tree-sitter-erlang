@@ -489,8 +489,17 @@
                     "type": "FIELD",
                     "name": "name",
                     "content": {
-                      "type": "SYMBOL",
-                      "name": "variable"
+                      "type": "CHOICE",
+                      "members": [
+                        {
+                          "type": "SYMBOL",
+                          "name": "atom"
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "variable"
+                        }
+                      ]
                     }
                   },
                   {
