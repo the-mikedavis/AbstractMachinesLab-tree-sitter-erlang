@@ -347,7 +347,16 @@ module.exports = grammar({
     pattern: ($) =>
       prec(
         PREC.PATTERN,
-        sepBy(EQUAL, choice($.term, $.variable, $.pat_list, $.pat_tuple))
+        sepBy(
+          EQUAL,
+          choice(
+            $.term,
+            $.variable,
+            $.pat_list,
+            $.pat_tuple,
+            $.expr_macro_application
+          )
+        )
       ),
 
     pat_list: ($) =>

@@ -1693,6 +1693,10 @@
               {
                 "type": "SYMBOL",
                 "name": "pat_tuple"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "expr_macro_application"
               }
             ]
           },
@@ -1723,6 +1727,10 @@
                     {
                       "type": "SYMBOL",
                       "name": "pat_tuple"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "expr_macro_application"
                     }
                   ]
                 }

@@ -5938,6 +5938,10 @@
           "named": true
         },
         {
+          "type": "expr_macro_application",
+          "named": true
+        },
+        {
           "type": "float",
           "named": true
         },
