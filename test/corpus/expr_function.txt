@@ -29,3 +29,24 @@ fun ?MODULE:F/A
         (variable))
       (variable))
     (variable)))
+
+================================================================================
+recursive anonymous function
+================================================================================
+
+Foo = fun F(X) -> F(X) end
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (expr_match
+    (variable)
+    (expr_lambda
+      (lambda_clause
+        (variable)
+        (pattern
+          (variable))
+        (expr_function_call
+          (computed_function_name
+            (variable))
+          (variable))))))

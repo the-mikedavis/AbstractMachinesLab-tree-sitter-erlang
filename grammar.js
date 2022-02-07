@@ -622,6 +622,7 @@ module.exports = grammar({
 
     lambda_clause: ($) =>
       seq(
+        opt(field("name", $.variable)),
         field("arguments", args($.pattern)),
         opt($.guard_clause),
         ARROW,
