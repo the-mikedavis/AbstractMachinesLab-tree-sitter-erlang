@@ -261,3 +261,17 @@ if on a macro value
   (module_attribute
     (expr_macro_application
       (variable))))
+
+================================================================================
+file module attribute with line
+================================================================================
+
+-file("my_file.erl", 123).
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (module_attribute
+    (atom)
+    (string)
+    (integer)))
