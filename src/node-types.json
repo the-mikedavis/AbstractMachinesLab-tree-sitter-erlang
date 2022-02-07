@@ -6767,8 +6767,12 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
+        {
+          "type": "integer",
+          "named": true
+        },
         {
           "type": "variable",
           "named": true

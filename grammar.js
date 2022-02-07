@@ -300,7 +300,7 @@ module.exports = grammar({
       seq(
         BINARY_LEFT,
         choice(
-          seq(UNDERSCORE, COLON, $.variable),
+          seq(UNDERSCORE, COLON, choice($.variable, $.integer)),
           seq(UNDERSCORE, COLON, UNDERSCORE, STAR, $.variable),
           seq(
             UNDERSCORE,
@@ -311,9 +311,9 @@ module.exports = grammar({
             UNDERSCORE,
             STAR,
             $.variable
-          ),
-          BINARY_RIGHT
-        )
+          )
+        ),
+        BINARY_RIGHT
       ),
 
     type_fun: ($) =>

@@ -298,3 +298,28 @@ function call within binary
       (variable)
       (bin_type_list
         (bin_type)))))
+
+================================================================================
+type with size
+================================================================================
+
+-spec lambda_table(bdict()) -> {non_neg_integer(), [<<_:192>>]}.
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_spec
+    (atom)
+    (type_expression
+      (type_application
+        (atom)))
+    (type_expression
+      (type_tuple
+        (type_expression
+          (type_application
+            (atom)))
+        (type_expression
+          (type_list
+            (type_expression
+              (type_bitstring
+                (integer)))))))))

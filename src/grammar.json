@@ -1339,8 +1339,17 @@
                   "value": ":"
                 },
                 {
-                  "type": "SYMBOL",
-                  "name": "variable"
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "variable"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "integer"
+                    }
+                  ]
                 }
               ]
             },
@@ -1405,12 +1414,12 @@
                   "name": "variable"
                 }
               ]
-            },
-            {
-              "type": "STRING",
-              "value": ">>"
             }
           ]
+        },
+        {
+          "type": "STRING",
+          "value": ">>"
         }
       ]
     },
