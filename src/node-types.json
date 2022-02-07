@@ -6916,6 +6916,10 @@
       "required": true,
       "types": [
         {
+          "type": "expr_macro_application",
+          "named": true
+        },
+        {
           "type": "type_application",
           "named": true
         },

@@ -263,6 +263,7 @@ module.exports = grammar({
             $.type_tuple,
             $.type_variable,
             $.type_binding,
+            $.expr_macro_application,
             $._type_list
           )
         )

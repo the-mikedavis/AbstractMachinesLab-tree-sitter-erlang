@@ -1017,6 +1017,10 @@
               },
               {
                 "type": "SYMBOL",
+                "name": "expr_macro_application"
+              },
+              {
+                "type": "SYMBOL",
                 "name": "_type_list"
               }
             ]
@@ -1072,6 +1076,10 @@
                     {
                       "type": "SYMBOL",
                       "name": "type_binding"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "expr_macro_application"
                     },
                     {
                       "type": "SYMBOL",

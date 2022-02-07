@@ -56,10 +56,11 @@ is_test(?TEST) -> true.
         (atom)))))
 
 ================================================================================
-macros in record names
+macros in types
 ================================================================================
 
 -type state() :: #?MODULE{}.
+-spec descend(?ROOT | ?NODE) -> ?NODE.
 
 --------------------------------------------------------------------------------
 
@@ -69,7 +70,17 @@ macros in record names
     (type_expression
       (type_record
         (expr_macro_application
-          (variable))))))
+          (variable)))))
+  (function_spec
+    (atom)
+    (type_expression
+      (expr_macro_application
+        (variable))
+      (expr_macro_application
+        (variable)))
+    (type_expression
+      (expr_macro_application
+        (variable)))))
 
 ================================================================================
 macro definition
