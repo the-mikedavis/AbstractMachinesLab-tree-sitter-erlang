@@ -150,7 +150,8 @@ module.exports = grammar({
         $.record_declaration,
         $.module_attribute,
         $.module_name,
-        $.module_export
+        $.module_export,
+        $.module_import
       ),
 
     record_declaration: ($) =>
@@ -183,6 +184,20 @@ module.exports = grammar({
         DASH,
         choice("export", "export_type"),
         parens(list(seq($.atom, SLASH, $.integer))),
+        DOT
+      ),
+
+    module_import: ($) =>
+      seq(
+        DASH,
+        choice("import", "import_type"),
+        parens(
+          seq(
+            field("module", $.atom),
+            COMMA,
+            list(seq($.atom, SLASH, $.integer))
+          )
+        ),
         DOT
       ),
 
