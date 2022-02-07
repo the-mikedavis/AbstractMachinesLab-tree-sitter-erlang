@@ -135,21 +135,20 @@ macro definition
         (variable)))))
 
 ================================================================================
-ifdef/endif
+anonymous capture within a macro
 ================================================================================
 
--ifdef(TEST).
--export([test_case/0]).
--endif.
+-define(PASS(N), {N,fun N/1}).
 
 --------------------------------------------------------------------------------
 
 (source_file
-  (module_attribute
-    (atom)
-    (variable))
-  (module_export
-    (atom)
-    (integer))
-  (module_attribute
-    (atom)))
+  (macro_declaration
+    (variable)
+    (pattern
+      (variable))
+    (tuple
+      (variable)
+      (expr_function_capture
+        (computed_function_name)
+        (integer)))))

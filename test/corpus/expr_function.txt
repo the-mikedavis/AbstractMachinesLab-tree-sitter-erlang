@@ -3,6 +3,7 @@ captured functions
 ================================================================================
 
 fun foo:bar/1
+fun N/1
 
 --------------------------------------------------------------------------------
 
@@ -11,4 +12,7 @@ fun foo:bar/1
     (qualified_function_name
       (atom)
       (atom))
+    (integer))
+  (expr_function_capture
+    (computed_function_name)
     (integer)))

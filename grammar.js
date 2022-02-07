@@ -633,7 +633,7 @@ module.exports = grammar({
         PREC.FUNCTION_NAME,
         choice(
           alias($._exact_qualified_function_name, $.qualified_function_name),
-          alias($.atom, $.computed_function_name)
+          alias(choice($.atom, $.variable), $.computed_function_name)
         )
       ),
 
