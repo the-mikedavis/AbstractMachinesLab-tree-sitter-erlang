@@ -6,6 +6,7 @@ M#{ 1 => V }
 (f())#{ k := V }
 Checksums1 = Checksums#{Module => Checksum}
 Checksums2 = Checksums1#{?MODULE => Checksum}
+Checksums3 = Checksums2#{module(?MODULE) => Checksum}
 
 --------------------------------------------------------------------------------
 
@@ -40,4 +41,16 @@ Checksums2 = Checksums1#{?MODULE => Checksum}
         (map_entry
           (expr_macro_application
             (variable))
+          (variable)))))
+  (expr_match
+    (variable)
+    (expr_map_update
+      (variable)
+      (map
+        (map_entry
+          (expr_function_call
+            (computed_function_name
+              (atom))
+            (expr_macro_application
+              (variable)))
           (variable))))))
