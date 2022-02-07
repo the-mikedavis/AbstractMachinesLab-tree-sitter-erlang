@@ -223,11 +223,16 @@ module.exports = grammar({
               field("name", choice($.atom, $.variable)),
               opt(field("arguments", args($.pattern))),
               COMMA,
-              field("value", $.expression)
+              field("value", $._macro_body_expression)
             )
           ),
           DOT
         )
+      ),
+
+    _macro_body_expression: ($) => choice(
+        $.expression,
+        $.bin_part
       ),
 
     comment: ($) => token(prec(-1, /%.*/)),

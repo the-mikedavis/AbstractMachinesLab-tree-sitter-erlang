@@ -743,7 +743,7 @@
                     "name": "value",
                     "content": {
                       "type": "SYMBOL",
-                      "name": "expression"
+                      "name": "_macro_body_expression"
                     }
                   }
                 ]
@@ -760,6 +760,19 @@
           }
         ]
       }
+    },
+    "_macro_body_expression": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "bin_part"
+        }
+      ]
     },
     "comment": {
       "type": "TOKEN",

@@ -4558,7 +4558,7 @@
     "fields": {},
     "children": {
       "multiple": false,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "atom",
@@ -5498,6 +5498,10 @@
           },
           {
             "type": "atom",
+            "named": true
+          },
+          {
+            "type": "bin_part",
             "named": true
           },
           {

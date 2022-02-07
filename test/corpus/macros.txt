@@ -152,3 +152,25 @@ anonymous capture within a macro
       (expr_function_capture
         (computed_function_name)
         (integer)))))
+
+================================================================================
+macro containing bitstring syntax
+================================================================================
+
+-define(UINT32(X), X:32/unsigned-big-integer).
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (macro_declaration
+    (variable)
+    (pattern
+      (variable))
+    (bin_part
+      (variable)
+      (bin_sized
+        (integer))
+      (bin_type_list
+        (bin_type)
+        (bin_type)
+        (bin_type)))))
