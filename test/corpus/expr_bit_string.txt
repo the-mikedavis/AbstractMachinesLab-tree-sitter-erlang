@@ -35,6 +35,7 @@ function that matches with a bitstring
 parse_date(
     <<Year:4/bytes, $-, Month:2/bytes, $-, Day:2/bytes, _Rest/binary>>) ->
     {Year, Month, Day}.
+trim_dash("-" ++ Rest) -> Rest.
 
 --------------------------------------------------------------------------------
 
@@ -74,4 +75,12 @@ parse_date(
         (tuple
           (variable)
           (variable)
-          (variable))))))
+          (variable)))))
+  (function_declaration
+    (function_clause
+      (atom)
+      (lambda_clause
+        (pattern
+          (string)
+          (variable))
+        (variable)))))

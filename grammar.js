@@ -33,6 +33,7 @@ const SEMI = ";";
 const SLASH = "/";
 const UNDERSCORE = "_";
 const STAR = "*";
+const PLUS_PLUS = "++";
 
 const OP1 = ["+", "-", "bnot", "not"];
 const OP2_LEFT_ASSOC = [
@@ -352,7 +353,7 @@ module.exports = grammar({
       prec(
         PREC.PATTERN,
         sepBy(
-          EQUAL,
+          choice(EQUAL, PLUS_PLUS),
           choice(
             $.term,
             $.variable,
