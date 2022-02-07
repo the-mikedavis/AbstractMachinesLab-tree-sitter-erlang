@@ -4,6 +4,8 @@ comprehensions
 
 << << (X*2) >> || <<X>> <= << 1,2,3 >>, is_integer(X) >>
 
+<< <<(byte_size(F)):16,F/binary>> || F <- Fnames2 >>
+
 --------------------------------------------------------------------------------
 
 (source_file
@@ -13,7 +15,7 @@ comprehensions
         (expr_op
           (variable)
           (integer))))
-    (expr_bitstring_generator
+    (expr_generator
       (variable)
       (binary_string
         (bin_part
@@ -26,7 +28,23 @@ comprehensions
       (expr_function_call
         (computed_function_name
           (atom))
-        (variable)))))
+        (variable))))
+  (expr_bitstring_comprehension
+    (binary_string
+      (bin_part
+        (expr_function_call
+          (computed_function_name
+            (atom))
+          (variable))
+        (bin_sized
+          (integer)))
+      (bin_part
+        (variable)
+        (bin_type_list
+          (bin_type))))
+    (expr_generator
+      (variable)
+      (variable))))
 
 ================================================================================
 function that matches with a bitstring

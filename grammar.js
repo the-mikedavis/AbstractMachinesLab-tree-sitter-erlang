@@ -124,6 +124,7 @@ module.exports = grammar({
       $.expr_record_access,
       $.expr_record_update,
     ],
+    [$.bin_part, $._expr],
   ],
 
   rules: {
@@ -490,12 +491,11 @@ module.exports = grammar({
         BRACKET_LEFT,
         $.expression,
         DOUBLE_PIPE,
-        $.expr_list_generator,
+        $.expr_generator,
         opt(seq(COMMA, $.expr_list_filter)),
         BRACKET_RIGHT
       ),
 
-    expr_list_generator: ($) => seq($.expression, REV_ARROW, $.expression),
     expr_list_filter: ($) => sepBy(COMMA, $.expression),
 
     expr_bitstring_comprehension: ($) =>
@@ -503,14 +503,27 @@ module.exports = grammar({
         BINARY_LEFT,
         $.term,
         DOUBLE_PIPE,
-        $.expr_bitstring_generator,
+        $.expr_generator,
         opt(seq(COMMA, $.expr_bitstring_filter)),
         BINARY_RIGHT
       ),
 
-    expr_bitstring_generator: ($) =>
-      seq(BINARY_LEFT, $.expression, BINARY_RIGHT, REV_FAT_ARROW, $.expression),
     expr_bitstring_filter: ($) => sepBy(COMMA, $.expression),
+
+    expr_generator: ($) =>
+      choice(
+        // Standard expression-based generator
+        seq($.expression, REV_ARROW, $.expression),
+        // You can also pick apart a binary in a generator with a syntax that uses
+        // `<=` instead of `<-`.
+        seq(
+          BINARY_LEFT,
+          $.expression,
+          BINARY_RIGHT,
+          REV_FAT_ARROW,
+          $.expression
+        )
+      ),
 
     expr_op: ($) => choice($._expr_operator_unary, $._expr_operator_binary),
 

@@ -11,7 +11,7 @@ comprehensions
     (expr_op
       (variable)
       (integer))
-    (expr_list_generator
+    (expr_generator
       (variable)
       (expr_list
         (integer)

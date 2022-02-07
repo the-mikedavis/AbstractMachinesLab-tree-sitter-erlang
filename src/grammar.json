@@ -2724,7 +2724,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "expr_list_generator"
+          "name": "expr_generator"
         },
         {
           "type": "CHOICE",
@@ -2750,23 +2750,6 @@
         {
           "type": "STRING",
           "value": "]"
-        }
-      ]
-    },
-    "expr_list_generator": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": "<-"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
         }
       ]
     },
@@ -2812,7 +2795,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "expr_bitstring_generator"
+          "name": "expr_generator"
         },
         {
           "type": "CHOICE",
@@ -2841,31 +2824,6 @@
         }
       ]
     },
-    "expr_bitstring_generator": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "<<"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        },
-        {
-          "type": "STRING",
-          "value": ">>"
-        },
-        {
-          "type": "STRING",
-          "value": "<="
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expression"
-        }
-      ]
-    },
     "expr_bitstring_filter": {
       "type": "SEQ",
       "members": [
@@ -2888,6 +2846,53 @@
               }
             ]
           }
+        }
+      ]
+    },
+    "expr_generator": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "expression"
+            },
+            {
+              "type": "STRING",
+              "value": "<-"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "expression"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "<<"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "expression"
+            },
+            {
+              "type": "STRING",
+              "value": ">>"
+            },
+            {
+              "type": "STRING",
+              "value": "<="
+            },
+            {
+              "type": "SYMBOL",
+              "name": "expression"
+            }
+          ]
         }
       ]
     },
@@ -4897,6 +4902,10 @@
       "expr_map_update",
       "expr_record_access",
       "expr_record_update"
+    ],
+    [
+      "bin_part",
+      "_expr"
     ]
   ],
   "precedences": [],

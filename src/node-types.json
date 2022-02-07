@@ -917,7 +917,7 @@
           "named": true
         },
         {
-          "type": "expr_bitstring_generator",
+          "type": "expr_generator",
           "named": true
         },
         {
@@ -953,141 +953,6 @@
   },
   {
     "type": "expr_bitstring_filter",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "atom",
-          "named": true
-        },
-        {
-          "type": "binary_string",
-          "named": true
-        },
-        {
-          "type": "char",
-          "named": true
-        },
-        {
-          "type": "expr_begin_block",
-          "named": true
-        },
-        {
-          "type": "expr_bitstring_comprehension",
-          "named": true
-        },
-        {
-          "type": "expr_case",
-          "named": true
-        },
-        {
-          "type": "expr_catch",
-          "named": true
-        },
-        {
-          "type": "expr_function_call",
-          "named": true
-        },
-        {
-          "type": "expr_function_capture",
-          "named": true
-        },
-        {
-          "type": "expr_if",
-          "named": true
-        },
-        {
-          "type": "expr_lambda",
-          "named": true
-        },
-        {
-          "type": "expr_list",
-          "named": true
-        },
-        {
-          "type": "expr_list_comprehension",
-          "named": true
-        },
-        {
-          "type": "expr_macro_application",
-          "named": true
-        },
-        {
-          "type": "expr_map_update",
-          "named": true
-        },
-        {
-          "type": "expr_match",
-          "named": true
-        },
-        {
-          "type": "expr_op",
-          "named": true
-        },
-        {
-          "type": "expr_receive",
-          "named": true
-        },
-        {
-          "type": "expr_record_access",
-          "named": true
-        },
-        {
-          "type": "expr_record_update",
-          "named": true
-        },
-        {
-          "type": "expr_send",
-          "named": true
-        },
-        {
-          "type": "expr_throw",
-          "named": true
-        },
-        {
-          "type": "expr_try",
-          "named": true
-        },
-        {
-          "type": "float",
-          "named": true
-        },
-        {
-          "type": "integer",
-          "named": true
-        },
-        {
-          "type": "list",
-          "named": true
-        },
-        {
-          "type": "map",
-          "named": true
-        },
-        {
-          "type": "record",
-          "named": true
-        },
-        {
-          "type": "string",
-          "named": true
-        },
-        {
-          "type": "tuple",
-          "named": true
-        },
-        {
-          "type": "variable",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "expr_bitstring_generator",
     "named": true,
     "fields": {},
     "children": {
@@ -1688,6 +1553,141 @@
     }
   },
   {
+    "type": "expr_generator",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "atom",
+          "named": true
+        },
+        {
+          "type": "binary_string",
+          "named": true
+        },
+        {
+          "type": "char",
+          "named": true
+        },
+        {
+          "type": "expr_begin_block",
+          "named": true
+        },
+        {
+          "type": "expr_bitstring_comprehension",
+          "named": true
+        },
+        {
+          "type": "expr_case",
+          "named": true
+        },
+        {
+          "type": "expr_catch",
+          "named": true
+        },
+        {
+          "type": "expr_function_call",
+          "named": true
+        },
+        {
+          "type": "expr_function_capture",
+          "named": true
+        },
+        {
+          "type": "expr_if",
+          "named": true
+        },
+        {
+          "type": "expr_lambda",
+          "named": true
+        },
+        {
+          "type": "expr_list",
+          "named": true
+        },
+        {
+          "type": "expr_list_comprehension",
+          "named": true
+        },
+        {
+          "type": "expr_macro_application",
+          "named": true
+        },
+        {
+          "type": "expr_map_update",
+          "named": true
+        },
+        {
+          "type": "expr_match",
+          "named": true
+        },
+        {
+          "type": "expr_op",
+          "named": true
+        },
+        {
+          "type": "expr_receive",
+          "named": true
+        },
+        {
+          "type": "expr_record_access",
+          "named": true
+        },
+        {
+          "type": "expr_record_update",
+          "named": true
+        },
+        {
+          "type": "expr_send",
+          "named": true
+        },
+        {
+          "type": "expr_throw",
+          "named": true
+        },
+        {
+          "type": "expr_try",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "list",
+          "named": true
+        },
+        {
+          "type": "map",
+          "named": true
+        },
+        {
+          "type": "record",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "tuple",
+          "named": true
+        },
+        {
+          "type": "variable",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "expr_if",
     "named": true,
     "fields": {},
@@ -1901,6 +1901,10 @@
           "named": true
         },
         {
+          "type": "expr_generator",
+          "named": true
+        },
+        {
           "type": "expr_if",
           "named": true
         },
@@ -1918,10 +1922,6 @@
         },
         {
           "type": "expr_list_filter",
-          "named": true
-        },
-        {
-          "type": "expr_list_generator",
           "named": true
         },
         {
@@ -2287,141 +2287,6 @@
   },
   {
     "type": "expr_list_filter",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "atom",
-          "named": true
-        },
-        {
-          "type": "binary_string",
-          "named": true
-        },
-        {
-          "type": "char",
-          "named": true
-        },
-        {
-          "type": "expr_begin_block",
-          "named": true
-        },
-        {
-          "type": "expr_bitstring_comprehension",
-          "named": true
-        },
-        {
-          "type": "expr_case",
-          "named": true
-        },
-        {
-          "type": "expr_catch",
-          "named": true
-        },
-        {
-          "type": "expr_function_call",
-          "named": true
-        },
-        {
-          "type": "expr_function_capture",
-          "named": true
-        },
-        {
-          "type": "expr_if",
-          "named": true
-        },
-        {
-          "type": "expr_lambda",
-          "named": true
-        },
-        {
-          "type": "expr_list",
-          "named": true
-        },
-        {
-          "type": "expr_list_comprehension",
-          "named": true
-        },
-        {
-          "type": "expr_macro_application",
-          "named": true
-        },
-        {
-          "type": "expr_map_update",
-          "named": true
-        },
-        {
-          "type": "expr_match",
-          "named": true
-        },
-        {
-          "type": "expr_op",
-          "named": true
-        },
-        {
-          "type": "expr_receive",
-          "named": true
-        },
-        {
-          "type": "expr_record_access",
-          "named": true
-        },
-        {
-          "type": "expr_record_update",
-          "named": true
-        },
-        {
-          "type": "expr_send",
-          "named": true
-        },
-        {
-          "type": "expr_throw",
-          "named": true
-        },
-        {
-          "type": "expr_try",
-          "named": true
-        },
-        {
-          "type": "float",
-          "named": true
-        },
-        {
-          "type": "integer",
-          "named": true
-        },
-        {
-          "type": "list",
-          "named": true
-        },
-        {
-          "type": "map",
-          "named": true
-        },
-        {
-          "type": "record",
-          "named": true
-        },
-        {
-          "type": "string",
-          "named": true
-        },
-        {
-          "type": "tuple",
-          "named": true
-        },
-        {
-          "type": "variable",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "expr_list_generator",
     "named": true,
     "fields": {},
     "children": {

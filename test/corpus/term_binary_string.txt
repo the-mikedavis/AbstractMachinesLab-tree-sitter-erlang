@@ -276,3 +276,25 @@ macro within binary
         (variable))
       (bin_sized
         (integer)))))
+
+================================================================================
+function call within binary
+================================================================================
+
+<<(byte_size(F)):16,F/binary>>
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (binary_string
+    (bin_part
+      (expr_function_call
+        (computed_function_name
+          (atom))
+        (variable))
+      (bin_sized
+        (integer)))
+    (bin_part
+      (variable)
+      (bin_type_list
+        (bin_type)))))
