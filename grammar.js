@@ -444,7 +444,7 @@ module.exports = grammar({
       prec.left(
         PREC.EXPR_MAP_UPDATE,
         seq(
-          $.expression,
+          opt($.expression),
           HASH,
           choice($.atom, $.expr_macro_application),
           DOT,
