@@ -323,3 +323,24 @@ type with size
             (type_expression
               (type_bitstring
                 (integer)))))))))
+
+================================================================================
+arithmetic within size field
+================================================================================
+
+<<String0/bitstring,0:(8-Rem)>>
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (binary_string
+    (bin_part
+      (variable)
+      (bin_type_list
+        (bin_type)))
+    (bin_part
+      (integer)
+      (bin_sized
+        (expr_op
+          (integer)
+          (variable))))))

@@ -734,8 +734,7 @@ module.exports = grammar({
         ),
         seq(parens($.expression), opt($.bin_sized), opt($.bin_type_list))
       ),
-    bin_sized: ($) =>
-      seq(COLON, choice($.integer, $.variable, $.expr_macro_application)),
+    bin_sized: ($) => prec.left(seq(COLON, $.expression)),
     bin_type_list: ($) => seq(SLASH, sepBy(DASH, $.bin_type)),
     bin_type: ($) =>
       choice(
