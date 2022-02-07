@@ -626,7 +626,7 @@ module.exports = grammar({
         "fun",
         $._exact_function_name,
         SLASH,
-        field("arity", choice($.integer, $.variable))
+        field("arity", choice($.integer, $.variable, $.expr_macro_application))
       ),
 
     expr_function_call: ($) =>
@@ -643,15 +643,24 @@ module.exports = grammar({
         PREC.FUNCTION_NAME,
         choice(
           alias($._exact_qualified_function_name, $.qualified_function_name),
-          alias(choice($.atom, $.variable), $.computed_function_name)
+          alias(
+            choice($.atom, $.variable, $.expr_macro_application),
+            $.computed_function_name
+          )
         )
       ),
 
     _exact_qualified_function_name: ($) =>
       seq(
-        field("module_name", choice($.atom, $.variable)),
+        field(
+          "module_name",
+          choice($.atom, $.variable, $.expr_macro_application)
+        ),
         COLON,
-        field("function_name", choice($.atom, $.variable))
+        field(
+          "function_name",
+          choice($.atom, $.variable, $.expr_macro_application)
+        )
       ),
 
     qualified_function_name: ($) =>

@@ -5,6 +5,7 @@ captured functions
 fun foo:bar/1
 fun N/1
 fun M:F/A
+fun ?MODULE:F/A
 
 --------------------------------------------------------------------------------
 
@@ -20,5 +21,11 @@ fun M:F/A
   (expr_function_capture
     (qualified_function_name
       (variable)
+      (variable))
+    (variable))
+  (expr_function_capture
+    (qualified_function_name
+      (expr_macro_application
+        (variable))
       (variable))
     (variable)))

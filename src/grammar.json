@@ -3848,6 +3848,10 @@
               {
                 "type": "SYMBOL",
                 "name": "variable"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "expr_macro_application"
               }
             ]
           }
@@ -3961,6 +3965,10 @@
                 {
                   "type": "SYMBOL",
                   "name": "variable"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "expr_macro_application"
                 }
               ]
             },
@@ -3986,6 +3994,10 @@
               {
                 "type": "SYMBOL",
                 "name": "variable"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "expr_macro_application"
               }
             ]
           }
@@ -4007,6 +4019,10 @@
               {
                 "type": "SYMBOL",
                 "name": "variable"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "expr_macro_application"
               }
             ]
           }
