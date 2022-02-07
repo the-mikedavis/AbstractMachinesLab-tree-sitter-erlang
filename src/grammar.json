@@ -4279,7 +4279,7 @@
               },
               {
                 "type": "PATTERN",
-                "value": "[nrtvbfesd\"]"
+                "value": "[nrtvbfesd\"\\\\]"
               }
             ]
           }
