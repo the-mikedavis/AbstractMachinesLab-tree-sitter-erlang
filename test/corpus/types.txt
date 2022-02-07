@@ -148,7 +148,8 @@ function types
       (type_binding
         (variable)
         (type_expression
-          (type_application (atom)))))
+          (type_application
+            (atom)))))
     (type_expression
       (type_atom
         (atom)))))
@@ -174,4 +175,20 @@ ADTs
           (type_variable
             (variable))))
       (type_atom
+        (atom)))))
+
+================================================================================
+type with parens
+================================================================================
+
+-type(tuple_of(_T) :: tuple()).
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (type_declaration
+    (atom)
+    (variable)
+    (type_expression
+      (type_application
         (atom)))))

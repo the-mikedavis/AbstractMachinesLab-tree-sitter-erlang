@@ -98,6 +98,7 @@ const delim = (open, x, close) => seq(open, x, close);
 const tuple = (x) => delim(BRACE_LEFT, opt(sepBy(COMMA, x)), BRACE_RIGHT);
 const list = (x) => delim(BRACKET_LEFT, opt(sepBy(COMMA, x)), BRACKET_RIGHT);
 const parens = (x) => delim(PARENS_LEFT, x, PARENS_RIGHT);
+const optParens = (x) => choice(x, parens(x));
 const args = (x) => field("arguments", parens(opt(sepBy(COMMA, x))));
 
 const oneOf = (x) => choice.apply(null, x);
@@ -230,10 +231,7 @@ module.exports = grammar({
         )
       ),
 
-    _macro_body_expression: ($) => choice(
-        $.expression,
-        $.bin_part
-      ),
+    _macro_body_expression: ($) => choice($.expression, $.bin_part),
 
     comment: ($) => token(prec(-1, /%.*/)),
 
@@ -247,10 +245,14 @@ module.exports = grammar({
       seq(
         DASH,
         choice("type", "opaque"),
-        field("name", $.atom),
-        args($.variable),
-        DOUBLE_COLON,
-        field("def", $.type_expression),
+        optParens(
+          seq(
+            field("name", $.atom),
+            args($.variable),
+            DOUBLE_COLON,
+            field("def", $.type_expression)
+          )
+        ),
         DOT
       ),
 
