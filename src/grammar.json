@@ -3826,8 +3826,17 @@
           "type": "FIELD",
           "name": "arity",
           "content": {
-            "type": "SYMBOL",
-            "name": "integer"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "integer"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "variable"
+              }
+            ]
           }
         }
       ]
@@ -3955,8 +3964,17 @@
           "type": "FIELD",
           "name": "module_name",
           "content": {
-            "type": "SYMBOL",
-            "name": "atom"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "atom"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "variable"
+              }
+            ]
           }
         },
         {
@@ -3967,8 +3985,17 @@
           "type": "FIELD",
           "name": "function_name",
           "content": {
-            "type": "SYMBOL",
-            "name": "atom"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "atom"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "variable"
+              }
+            ]
           }
         }
       ]

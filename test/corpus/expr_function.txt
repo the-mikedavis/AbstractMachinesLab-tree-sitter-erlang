@@ -4,6 +4,7 @@ captured functions
 
 fun foo:bar/1
 fun N/1
+fun M:F/A
 
 --------------------------------------------------------------------------------
 
@@ -15,4 +16,9 @@ fun N/1
     (integer))
   (expr_function_capture
     (computed_function_name)
-    (integer)))
+    (integer))
+  (expr_function_capture
+    (qualified_function_name
+      (variable)
+      (variable))
+    (variable)))

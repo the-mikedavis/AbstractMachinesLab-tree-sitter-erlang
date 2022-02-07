@@ -622,7 +622,12 @@ module.exports = grammar({
       ),
 
     expr_function_capture: ($) =>
-      seq("fun", $._exact_function_name, SLASH, field("arity", $.integer)),
+      seq(
+        "fun",
+        $._exact_function_name,
+        SLASH,
+        field("arity", choice($.integer, $.variable))
+      ),
 
     expr_function_call: ($) =>
       seq(field("name", $._function_name), args($.expression)),
@@ -643,7 +648,11 @@ module.exports = grammar({
       ),
 
     _exact_qualified_function_name: ($) =>
-      seq(field("module_name", $.atom), COLON, field("function_name", $.atom)),
+      seq(
+        field("module_name", choice($.atom, $.variable)),
+        COLON,
+        field("function_name", choice($.atom, $.variable))
+      ),
 
     qualified_function_name: ($) =>
       seq(
