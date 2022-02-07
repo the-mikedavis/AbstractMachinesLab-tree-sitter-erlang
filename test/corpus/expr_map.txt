@@ -5,6 +5,7 @@ updates
 M#{ 1 => V }
 (f())#{ k := V }
 Checksums1 = Checksums#{Module => Checksum}
+Checksums2 = Checksums1#{?MODULE => Checksum}
 
 --------------------------------------------------------------------------------
 
@@ -30,4 +31,13 @@ Checksums1 = Checksums#{Module => Checksum}
       (map
         (map_entry
           (variable)
+          (variable)))))
+  (expr_match
+    (variable)
+    (expr_map_update
+      (variable)
+      (map
+        (map_entry
+          (expr_macro_application
+            (variable))
           (variable))))))

@@ -760,7 +760,7 @@ module.exports = grammar({
       seq(HASH, BRACE_LEFT, opt(sepBy(COMMA, $.map_entry)), BRACE_RIGHT),
     map_entry: ($) =>
       seq(
-        choice($.term, $.variable),
+        choice($.term, $.variable, $.expr_macro_application),
         choice(FAT_ARROW, COLON_EQUAL),
         $.expression
       ),
