@@ -249,19 +249,22 @@ module.exports = grammar({
     type_binding: ($) => seq($.variable, DOUBLE_COLON, $.type_expression),
 
     type_expression: ($) =>
-      sepBy(
-        PIPE,
-        choice(
-          $.type_atom,
-          $.type_application,
-          $.type_bitstring,
-          $.type_fun,
-          $.type_integer,
-          $.type_map,
-          $.type_record,
-          $.type_tuple,
-          $.type_variable,
-          $._type_list
+      prec.right(
+        sepBy(
+          PIPE,
+          choice(
+            $.type_atom,
+            $.type_application,
+            $.type_bitstring,
+            $.type_fun,
+            $.type_integer,
+            $.type_map,
+            $.type_record,
+            $.type_tuple,
+            $.type_variable,
+            $.type_binding,
+            $._type_list
+          )
         )
       ),
 
@@ -336,7 +339,7 @@ module.exports = grammar({
         BRACE_RIGHT
       ),
     type_record_field: ($) =>
-      seq($.type_expression, DOUBLE_COLON, $.type_expression),
+      seq($.atom, opt(seq(DOUBLE_COLON, $.type_expression))),
 
     ////////////////////////////////////////////////////////////////////////////
     //

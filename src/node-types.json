@@ -6924,6 +6924,10 @@
           "named": true
         },
         {
+          "type": "type_binding",
+          "named": true
+        },
+        {
           "type": "type_bitstring",
           "named": true
         },
@@ -7106,6 +7110,10 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "atom",
+          "named": true
+        },
         {
           "type": "type_expression",
           "named": true

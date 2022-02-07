@@ -122,6 +122,8 @@ function types
 
 -callback cb(a()) -> some() | type.
 
+-spec ok(Var :: term()) -> ok.
+
 --------------------------------------------------------------------------------
 
 (source_file
@@ -138,6 +140,16 @@ function types
     (type_expression
       (type_application
         (atom))
+      (type_atom
+        (atom))))
+  (function_spec
+    (atom)
+    (type_expression
+      (type_binding
+        (variable)
+        (type_expression
+          (type_application (atom)))))
+    (type_expression
       (type_atom
         (atom)))))
 

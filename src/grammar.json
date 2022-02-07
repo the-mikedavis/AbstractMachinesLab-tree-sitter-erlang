@@ -967,111 +967,123 @@
       ]
     },
     "type_expression": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "type_atom"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "type_application"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "type_bitstring"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "type_fun"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "type_integer"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "type_map"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "type_record"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "type_tuple"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "type_variable"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_type_list"
-            }
-          ]
-        },
-        {
-          "type": "REPEAT",
-          "content": {
-            "type": "SEQ",
+      "type": "PREC_RIGHT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "CHOICE",
             "members": [
               {
-                "type": "STRING",
-                "value": "|"
+                "type": "SYMBOL",
+                "name": "type_atom"
               },
               {
-                "type": "CHOICE",
-                "members": [
-                  {
-                    "type": "SYMBOL",
-                    "name": "type_atom"
-                  },
-                  {
-                    "type": "SYMBOL",
-                    "name": "type_application"
-                  },
-                  {
-                    "type": "SYMBOL",
-                    "name": "type_bitstring"
-                  },
-                  {
-                    "type": "SYMBOL",
-                    "name": "type_fun"
-                  },
-                  {
-                    "type": "SYMBOL",
-                    "name": "type_integer"
-                  },
-                  {
-                    "type": "SYMBOL",
-                    "name": "type_map"
-                  },
-                  {
-                    "type": "SYMBOL",
-                    "name": "type_record"
-                  },
-                  {
-                    "type": "SYMBOL",
-                    "name": "type_tuple"
-                  },
-                  {
-                    "type": "SYMBOL",
-                    "name": "type_variable"
-                  },
-                  {
-                    "type": "SYMBOL",
-                    "name": "_type_list"
-                  }
-                ]
+                "type": "SYMBOL",
+                "name": "type_application"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "type_bitstring"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "type_fun"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "type_integer"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "type_map"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "type_record"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "type_tuple"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "type_variable"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "type_binding"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_type_list"
               }
             ]
+          },
+          {
+            "type": "REPEAT",
+            "content": {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "|"
+                },
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "type_atom"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "type_application"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "type_bitstring"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "type_fun"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "type_integer"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "type_map"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "type_record"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "type_tuple"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "type_variable"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "type_binding"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_type_list"
+                    }
+                  ]
+                }
+              ]
+            }
           }
-        }
-      ]
+        ]
+      }
     },
     "type_variable": {
       "type": "SYMBOL",
@@ -1666,15 +1678,28 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "type_expression"
+          "name": "atom"
         },
         {
-          "type": "STRING",
-          "value": "::"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "type_expression"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "::"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "type_expression"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         }
       ]
     },

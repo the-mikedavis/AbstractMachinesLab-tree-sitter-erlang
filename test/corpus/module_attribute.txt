@@ -110,7 +110,7 @@ record creation
               (atom))))))))
 
 ================================================================================
-Spec with multi-clause 'when'
+spec with multi-clause 'when'
 ================================================================================
 
 -spec to_standalone_fun(Fun, Options) -> StandaloneFun when
@@ -149,7 +149,7 @@ Spec with multi-clause 'when'
             (atom)))))))
 
 ================================================================================
-Spec with multi-clause 'when'
+multi-clause spec
 ================================================================================
 
 -spec get
