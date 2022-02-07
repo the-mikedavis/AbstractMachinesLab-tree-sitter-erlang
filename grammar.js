@@ -518,7 +518,7 @@ module.exports = grammar({
     expr_generator: ($) =>
       choice(
         // Standard expression-based generator
-        seq($.expression, REV_ARROW, $.expression),
+        seq($.expression, opt(seq(REV_ARROW, $.expression))),
         // You can also pick apart a binary in a generator with a syntax that uses
         // `<=` instead of `<-`.
         seq(
@@ -720,13 +720,7 @@ module.exports = grammar({
       token(
         seq(
           "\\",
-          choice(
-            /[0-7]{1,3}/,
-            /x[0-9a-fA-F]{2}/,
-            /x{[0-9a-fA-F]+}/,
-            "\n",
-            /./
-          )
+          choice(/[0-7]{1,3}/, /x[0-9a-fA-F]{2}/, /x{[0-9a-fA-F]+}/, "\n", /./)
         )
       ),
 

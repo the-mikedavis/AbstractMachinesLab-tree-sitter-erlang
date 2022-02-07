@@ -3,6 +3,7 @@ comprehensions
 ================================================================================
 
 [ (X*2) || X <- [ 1,2,3 ], X > 2 ]
+[compiler_generated || Generated]
 
 --------------------------------------------------------------------------------
 
@@ -20,4 +21,8 @@ comprehensions
     (expr_list_filter
       (expr_op
         (variable)
-        (integer)))))
+        (integer))))
+  (expr_list_comprehension
+    (atom)
+    (expr_generator
+      (variable))))
