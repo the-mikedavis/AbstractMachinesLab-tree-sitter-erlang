@@ -708,14 +708,22 @@ module.exports = grammar({
     bin_part: ($) =>
       choice(
         seq(
-          choice($.integer, $.float, $.string, $.char, $.variable),
+          choice(
+            $.integer,
+            $.float,
+            $.string,
+            $.char,
+            $.variable,
+            $.expr_macro_application
+          ),
           opt($.bin_sized),
           opt($.bin_type_list)
         ),
         seq(parens($.expression), opt($.bin_sized), opt($.bin_type_list))
       ),
-    bin_sized: ($) => seq(/:/, $.integer),
-    bin_type_list: ($) => seq(/\//, sepBy(DASH, $.bin_type)),
+    bin_sized: ($) =>
+      seq(COLON, choice($.integer, $.variable, $.expr_macro_application)),
+    bin_type_list: ($) => seq(SLASH, sepBy(DASH, $.bin_type)),
     bin_type: ($) =>
       choice(
         "big",
@@ -728,6 +736,7 @@ module.exports = grammar({
         "little",
         "native",
         "signed",
+        seq("unit", COLON, $.integer),
         "unsigned",
         "utf16",
         "utf32",

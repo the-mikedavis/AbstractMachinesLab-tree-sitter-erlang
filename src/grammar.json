@@ -4492,6 +4492,10 @@
                 {
                   "type": "SYMBOL",
                   "name": "variable"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "expr_macro_application"
                 }
               ]
             },
@@ -4573,12 +4577,25 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "PATTERN",
+          "type": "STRING",
           "value": ":"
         },
         {
-          "type": "SYMBOL",
-          "name": "integer"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "integer"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "variable"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "expr_macro_application"
+            }
+          ]
         }
       ]
     },
@@ -4586,8 +4603,8 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "PATTERN",
-          "value": "\\/"
+          "type": "STRING",
+          "value": "/"
         },
         {
           "type": "SEQ",
@@ -4658,6 +4675,23 @@
         {
           "type": "STRING",
           "value": "signed"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "unit"
+            },
+            {
+              "type": "STRING",
+              "value": ":"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "integer"
+            }
+          ]
         },
         {
           "type": "STRING",
