@@ -725,7 +725,7 @@ module.exports = grammar({
             /x[0-9a-fA-F]{2}/,
             /x{[0-9a-fA-F]+}/,
             "\n",
-            /[nrtvbfesd"\\]/
+            /./
           )
         )
       ),
