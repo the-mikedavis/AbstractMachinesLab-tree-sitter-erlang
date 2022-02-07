@@ -238,8 +238,17 @@
             "value": "-"
           },
           {
-            "type": "SYMBOL",
-            "name": "atom"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "if"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "atom"
+              }
+            ]
           },
           {
             "type": "CHOICE",
